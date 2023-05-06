@@ -39,7 +39,7 @@ public class TaskTest {
     }
 
     @Test
-    public void Test() {
+    public void TestDescrp() {
         int id = 1;
         String description = "Tâche de test";
         String newDescription = "Nouvelle description de la tâche";
