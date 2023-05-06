@@ -42,7 +42,7 @@ public class TaskManagerTest {
     }
     @Test
     public void testAjoutEtSupp() {
-        String input = "1\nTâche à supprimer\n3\n1\n5\n";
+        String input = "1\nTâche à supprimer\n3\n1\n4\n5\n";
         ByteArrayInputStream inputContent = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputContent);
 
@@ -55,5 +55,6 @@ public class TaskManagerTest {
         assertTrue(output.contains("Tâche supprimée."));
         assertTrue(output.contains("Aucune tâche à afficher."));
     }
+
 
 }

@@ -1,11 +1,12 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TaskListTest {
 
     @Test
-    public void testDisplayTasks() {
+    public void testTaskListOperations() {
         TaskList taskList = new TaskList();
 
         // Ajouter des tâches à la liste
@@ -14,19 +15,17 @@ public class TaskListTest {
         taskList.addTask(task1);
         taskList.addTask(task2);
 
+        // Vérifier que les tâches ont été ajoutées correctement
+        assertEquals(2, taskList.getTasks().size(), "Le nombre de tâches ajoutées est incorrect.");
+
         // Marquer la deuxième tâche comme terminée
-        task2.setCompleted(true);
+        assertTrue(taskList.markTaskAsCompleted(2), "La tâche n'a pas été marquée comme terminée.");
+        assertTrue(task2.isCompleted(), "La tâche devrait être marquée comme terminée.");
 
-        // Appeler la méthode displayTasks
-        String taskListDisplay = taskList.displayTasks();
-
-        // Construire la chaîne de caractères attendue
-        String expectedDisplay = "1. Tâche 1 - En cours\n" +
-                "2. Tâche 2 - Terminée";
-
-        // Vérifier que la chaîne de caractères générée correspond à ce que nous attendons
-        assertEquals(expectedDisplay, taskListDisplay,
-                String.format("Le format d'affichage de la liste des tâches est incorrect. Attendu : '%s', Obtenu : '%s'", expectedDisplay, taskListDisplay));
+        // Supprimer la première tâche
+        assertTrue(taskList.deleteTask(1), "La tâche n'a pas été supprimée.");
+        assertEquals(1, taskList.getTasks().size(), "Le nombre de tâches après suppression est incorrect.");
     }
+
 
 }
