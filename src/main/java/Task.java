@@ -35,7 +35,7 @@ public class Task {
         this.completed = completed;
     }
 
-    // Autres mÃ©thodes
+    // Autres méthodes
     public void toggleCompleted() {
         this.completed = !this.completed;
     }
@@ -45,7 +45,6 @@ public class Task {
         return "Task{" +
                 "id=" + id +
                 ", description='" + description + '\'' +
-                ", completed=" + completed +
-                '}';
+                ", completed=" + completed + '}';
     }
 }
